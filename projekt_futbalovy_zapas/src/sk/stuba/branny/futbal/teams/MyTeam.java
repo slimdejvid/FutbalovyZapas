@@ -12,7 +12,7 @@ import sk.stuba.branny.futbal.players.*;
 
 public class MyTeam {
 	private String teamName = "FC Barcelona";
-	
+	private final int numberOfSubs = 3; 
 
 	private List <Player> availableGoalkeepers; 
 	private List <Player> availableDefenders; 
@@ -268,7 +268,7 @@ public class MyTeam {
 	}
 	
 	
-	private void printStartingEleven() //na vypis mojej jedenastky, pred zpaasom
+	private void printStartingEleven() //na vypis mojej jedenastky, pred zpasom
 	{
 		System.out.println("\n"+teamName+"\n");
 		for(Player p:startingElevenMyTeam)
@@ -277,6 +277,8 @@ public class MyTeam {
 		}
 		System.out.println("\n");
 	}
+	
+	
 	
 	public List <Player> getStartingElevenMyTeam()
 	{
@@ -290,6 +292,20 @@ public class MyTeam {
 		
 	}
 	
+	public List <Player> getAvailableDefenders()
+	{
+        return this.availableDefenders;
+	}
+	
+	public List <Player> getAvailableMidfielders()
+	{
+        return this.availableMidfielders;
+	}
+	
+	public List <Player> getAvailableForwards()
+	{
+        return this.availableForwards;
+	}
 	
 
 	

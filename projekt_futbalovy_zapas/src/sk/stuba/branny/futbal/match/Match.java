@@ -1,6 +1,7 @@
 package sk.stuba.branny.futbal.match;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.Random;
 
 import sk.stuba.branny.futbal.players.Defender;
@@ -14,7 +15,8 @@ import sk.stuba.branny.futbal.teams.MyTeam;
 
 public class Match {
 	private static Match instance;
-	private final int pocStriedani = 3; // 
+	private final int maxNumberOfSubs = 3; 
+	private int numberOfSubs;
 	private MyTeam homeTeam;//agregacia
 	private DefaultTeam awayTeam;//agregacia
 	
@@ -56,6 +58,87 @@ public class Match {
 		this.startingElevenAwayTeam = awayTeam.getStartingElevenAwayTeam();
 		this.awayName = awayTeam.getTeamName();
 	}
+	
+	
+	
+	private int getNumberOfSubs()
+	{
+		Scanner sc = new Scanner(System.in);
+		int input=0;
+		try
+		{
+			 input = sc.nextInt();
+		}
+		catch(Exception e) {e.printStackTrace();}
+		
+		
+		return input;
+	}
+	
+	
+	private void substitiution() 
+	{
+		System.out.println("Choose how many substitutions you want to make.");
+		numberOfSubs=getNumberOfSubs();
+		Player p1,p2;
+		
+		if(numberOfSubs>3)
+			numberOfSubs=3;
+		
+		for(int i=0;i<numberOfSubs;i++)
+		{
+			p1=choosePlayerToBeSub();
+			choosePlayerToSub(p1);
+		}
+			
+			
+		
+		
+	}
+	
+	
+	private Player choosePlayerToBeSub()
+	{
+		
+		System.out.println("Choose kit number of player to be substituted.");
+		Scanner sc = new Scanner(System.in);
+		
+		int input = sc.nextInt();
+		for(Player p : startingElevenMyTeam)
+		{
+			if(p.getKitNumber()==input)
+			{
+				return p;
+			}
+				
+		}
+		System.out.println("There is no player with this number.");
+		return null;
+		
+	}
+	
+	
+	private void choosePlayerToSub(Player chosen)
+	{
+		System.out.println("Choose kit number of player to substitute the player.");
+		if(chosen instanceof Defender)
+			{
+			
+			}
+	
+	}
+	
+	public void substitute(Defender h1,Defender h2) {
+		
+		
+	}
+	
+	public void substitute(Midfielder m1,Midfielder m2) {
+		
+		
+	}
+
+	
 	
 	public void pass(Player passing,Player recieving,Player defending,Class c) // funkcia ktorá rieši problematiku prihrávania
 	{
