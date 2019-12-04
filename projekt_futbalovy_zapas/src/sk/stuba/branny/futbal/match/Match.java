@@ -82,14 +82,15 @@ public class Match {
 		{
 			
 			defending.setHasBall(true);
-			System.out.println("- Missed pass on player "+recieving.getFirstName()+" "+recieving.getSecondName()+"  .The pass was caught by "+defending.getFirstName()+" "+defending.getSecondName());
+			System.out.println("- Missed pass on "+recieving.getFirstName()+" "+recieving.getSecondName()+"  .The pass was caught by "+defending.getFirstName()+" "+defending.getSecondName());
 		}
 		else //if accurate pass
 		{
 			recieving.setHasBall(true);
-			System.out.println("- Accurate pass to player "+recieving.getFirstName()+" "+recieving.getSecondName());
+			System.out.println("- Accurate pass to "+recieving.getFirstName()+" "+recieving.getSecondName());
 		}	
 	}
+
 	
 	
 	
