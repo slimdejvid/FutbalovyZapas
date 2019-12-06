@@ -19,14 +19,15 @@ public class Main {
 			ipt=sc.next().charAt(0);
 		}
 		
+		
 			MyTeam t1 = new MyTeam();
 			DefaultTeam t2 = new DefaultTeam();
 			Match match = Match.getInstance(); //vytvorenie inštancie matchu cez singleton
 			match.setHomeTeam(t1);
 			match.setAwayTeam(t2);
 			match.startTheMatch();
+			sc.close();
 		
-		sc.close();	
 	}
 
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 import sk.stuba.branny.futbal.players.*;
 
-public class DefaultTeam {
+public class DefaultTeam implements Teams {
 	private String teamName = "FC Bayern Munich";
 	
 	private List <Player> startingElevenBayern;
@@ -18,8 +18,8 @@ public class DefaultTeam {
 		
 		printTeam();
 	}
-	
-	private void initPlayers() {
+	@Override
+	public void initPlayers() {
 		Player g1 = new Goalkeeper("Manuel","Neuer",1,70,90);
 		startingElevenBayern.add(g1);
 		
@@ -50,8 +50,8 @@ public class DefaultTeam {
 		
 		
 	}
-	
-	private void printTeam() 
+	@Override
+	public void printTeam() 
 	{
 		System.out.println("\n"+teamName+"\n");
 		for (Player p:startingElevenBayern) 

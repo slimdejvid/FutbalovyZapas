@@ -16,9 +16,11 @@ import sk.stuba.branny.futbal.teams.MyTeam;
 public class Match {
 	private static Match instance;
 	private final int maxNumberOfSubs = 3; 
-	private int numberOfSubs;
+	
 	private MyTeam homeTeam;//agregacia
 	private DefaultTeam awayTeam;//agregacia
+	
+	Scanner scan = new Scanner(System.in);
 	
 	private String homeName;
 	private String awayName;
@@ -60,50 +62,42 @@ public class Match {
 	}
 	
 	
+
 	
-	private int getNumberOfSubs()
+	public void substitution(int numberOfSubs) 
 	{
-		Scanner sc = new Scanner(System.in);
-		int input=0;
-		try
-		{
-			 input = sc.nextInt();
-		}
-		catch(Exception e) {e.printStackTrace();}
-		
-		
-		return input;
-	}
 	
-	
-	private void substitiution() 
-	{
-		System.out.println("Choose how many substitutions you want to make.");
-		numberOfSubs=getNumberOfSubs();
 		Player p1,p2;
 		
-		if(numberOfSubs>3)
+		if(numberOfSubs>maxNumberOfSubs)
 			numberOfSubs=3;
 		
-		for(int i=0;i<numberOfSubs;i++)
+		while(numberOfSubs>0)
 		{
 			p1=choosePlayerToBeSub();
-			choosePlayerToSub(p1);
+			p2=choosePlayerToSub(p1);
+			if(p2 == null)
+				continue;
+			else if(p1 instanceof Defender) 
+				substitute((Defender) p1,(Defender) p2); //downcasting
+			else if(p1 instanceof Midfielder)
+				substitute((Midfielder) p1,(Midfielder) p2);
+			else if(p1 instanceof Midfielder)
+				substitute((Forward) p1,(Forward) p2);
+			numberOfSubs--;			
 		}
-			
-			
-		
-		
+	
 	}
 	
 	
-	private Player choosePlayerToBeSub()
+	public Player choosePlayerToBeSub()
 	{
 		
 		System.out.println("Choose kit number of player to be substituted.");
-		Scanner sc = new Scanner(System.in);
 		
-		int input = sc.nextInt();
+		
+		int input = scan.nextInt();
+		
 		for(Player p : startingElevenMyTeam)
 		{
 			if(p.getKitNumber()==input)
@@ -118,24 +112,169 @@ public class Match {
 	}
 	
 	
-	private void choosePlayerToSub(Player chosen)
+	public Player choosePlayerToSub(Player chosen)
 	{
+		
+		
+		if(chosen==null)
+			return null;
+		
 		System.out.println("Choose kit number of player to substitute the player.");
-		if(chosen instanceof Defender)
+		
+		List <Player> players;
+		if(chosen instanceof Goalkeeper)
+		{
+			players=homeTeam.getAvailableGoalkeepers();
+			for(Player p : players)
 			{
-			
+				System.out.println("Kit number: "+p.getKitNumber()+" | "+p.getFirstName()+" "+p.getSecondName()+" | Defending: "+Math.round(((Defender)p).getDefending())+" | Passing: "+Math.round(((Defender)p).getPassing()));
 			}
+			
+			int input = scan.nextInt();
+			
+			for(Player p : players)
+			{
+				if(input == p.getKitNumber())
+				{
+					return p;
+				}					
+			}
+			System.out.println("Wrong kit number");
+			return null;
+		}
+		else if(chosen instanceof Defender)
+		{
+			players=homeTeam.getAvailableDefenders();
+			for(Player p : players)
+			{
+				System.out.println("Kit number: "+p.getKitNumber()+" | "+p.getFirstName()+" "+p.getSecondName()+" | Defending: "+Math.round(((Defender)p).getDefending())+" | Passing: "+Math.round(((Defender)p).getPassing()));
+			}
+			
+			int input = scan.nextInt();
+			
+			for(Player p : players)
+			{
+				if(input == p.getKitNumber())
+				{
+					return p;
+				}					
+			}
+			System.out.println("Wrong kit number");
+			return null;
+			
+			
+		}
+		else if(chosen instanceof Midfielder)
+		{
+			players=homeTeam.getAvailableMidfielders();
+			for(Player p : players)
+			{
+				System.out.println("Kit number: "+p.getKitNumber()+" | "+p.getFirstName()+" "+p.getSecondName()+" | Passing: "+Math.round(((Midfielder)p).getPassing()));
+			}
+			
+			int input = scan.nextInt();
+			
+			for(Player p : players)
+			{
+				if(input == p.getKitNumber())
+				{
+					
+					return p;
+				}					
+			}
+			System.out.println("Wrong kit number");
+			return null;
+		}
+		else if(chosen instanceof Forward)
+		{
+			players=homeTeam.getAvailableForwards();
+			for(Player p : players)
+			{
+				System.out.println("Kit number: "+p.getKitNumber()+" | "+p.getFirstName()+" "+p.getSecondName()+" | Shooting: "+Math.round(((Forward)p).getShooting())+" | Dribling: "+Math.round(((Forward)p).getDribling()));
+			}
+			
+			int input = scan.nextInt();
+			
+			for(Player p : players)
+			{
+				if(input == p.getKitNumber())
+				{
+					
+					return p;
+				}					
+			}
+			System.out.println("Wrong kit number");
+			return null;
+		}
+		
+		return null;
+		
+		
 	
 	}
 	
-	public void substitute(Defender h1,Defender h2) {
+	
+	public int returnPosition(Player p)
+	{
+		int numberOfPlayers=startingElevenMyTeam.size();
 		
+		for(int i = 0 ; i < numberOfPlayers ; i++)
+		{
+			if(p.getKitNumber()==startingElevenMyTeam.get(i).getKitNumber())
+			{
+				
+				return i;
+			}
+		}
+		return 0;
+	}
+	
+	public void substitute(Goalkeeper g1,Goalkeeper g2)
+	{
+		Player goalie=(Player)g1; //upcasting
 		
 	}
 	
-	public void substitute(Midfielder m1,Midfielder m2) {
+	
+	
+	//overloading 
+	public void substitute(Defender d1,Defender d2) 
+	{
+		int pozicia = returnPosition(d1);
 		
+		List <Player> players=homeTeam.getAvailableDefenders();
 		
+		startingElevenMyTeam.remove(pozicia);
+		startingElevenMyTeam.add(pozicia, d2);
+		players.remove(d2);
+		players.add(d1);
+		
+	}
+	//overloading
+	public void substitute(Midfielder m1,Midfielder m2) 
+	{
+		int pozicia = returnPosition(m1);
+		
+		List <Player> players=homeTeam.getAvailableMidfielders();
+		
+		startingElevenMyTeam.remove(pozicia);
+		startingElevenMyTeam.add(pozicia, m2);
+		players.remove(m2);
+		players.add(m1);
+		
+	}
+	//overloading 
+	public void substitute(Forward f1,Forward f2) 
+	{
+		
+		int pozicia = returnPosition(f1);
+		
+		List <Player> players=homeTeam.getAvailableForwards();
+		
+		startingElevenMyTeam.remove(pozicia);
+		startingElevenMyTeam.add(pozicia, f2);
+		players.remove(f2);
+		players.add(f1);
 	}
 
 	
@@ -270,14 +409,28 @@ public class Match {
 	
 	public void startTheMatch() //metoda ziskavajuca priebeh zapasu
 	{
+		int numberOfSubs;
 		int numberOfActions = 25; //poèet akcii zapasu
 		Random rnd = new Random();
+		
 		int numberOfPlayers = startingElevenMyTeam.size();
+		
 		int drible;
+		
 		startingElevenMyTeam.get(5).setHasBall(true);//na zaèiatok ma loptu hraè z mojho teamu
+		
 		System.out.println("The match has started");
+		
 		while(numberOfActions>0)
 		{
+			if(numberOfActions == 17)
+			{
+				System.out.println("Choose how many substitutions you want to make");
+				
+				numberOfSubs=scan.nextInt();
+				substitution(numberOfSubs);
+			}
+				
 			System.out.println("\n"); 
 			for(int i = 0 ; i < numberOfPlayers ; i++)
 			{

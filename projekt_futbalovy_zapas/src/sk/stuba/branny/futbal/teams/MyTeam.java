@@ -10,9 +10,9 @@ import java.util.Random;
 import sk.stuba.branny.futbal.players.*;
 
 
-public class MyTeam {
+public class MyTeam implements Teams {
 	private String teamName = "FC Barcelona";
-	private final int numberOfSubs = 3; 
+	
 
 	private List <Player> availableGoalkeepers; 
 	private List <Player> availableDefenders; 
@@ -40,10 +40,10 @@ public class MyTeam {
 		chooseDefenders();		
 		chooseMidfielders();	
 		chooseForwards();	 
-		printStartingEleven();
+		printTeam();
 	}
-	
-	private void initPlayers() {	//kompozicia
+	@Override
+	public void initPlayers() {	//kompozicia
 		
 		Player g1 = new Goalkeeper("Marc-André","Ter Stegen",1,70,85);
 		Player g2 = new Goalkeeper("Norberto","Neto",13,65,80);
@@ -240,7 +240,7 @@ public class MyTeam {
 			if(find == false)
 				System.out.println("Invalid kit number, try again");					
 		}
-	sc.close();	
+	//sc.close();	
 	}
 	
 	private void printPlayers(List <Player> pole,Class c) //vypis hraèov pri vyberaní
@@ -268,7 +268,8 @@ public class MyTeam {
 	}
 	
 	
-	private void printStartingEleven() //na vypis mojej jedenastky, pred zpasom
+	@Override
+	public void printTeam() //na vypis mojej jedenastky, pred zpasom
 	{
 		System.out.println("\n"+teamName+"\n");
 		for(Player p:startingElevenMyTeam)
@@ -277,7 +278,6 @@ public class MyTeam {
 		}
 		System.out.println("\n");
 	}
-	
 	
 	
 	public List <Player> getStartingElevenMyTeam()
@@ -291,6 +291,12 @@ public class MyTeam {
 		return this.teamName;
 		
 	}
+	
+	public List <Player> getAvailableGoalkeepers()
+	{
+        return this.availableGoalkeepers;
+	}
+	
 	
 	public List <Player> getAvailableDefenders()
 	{

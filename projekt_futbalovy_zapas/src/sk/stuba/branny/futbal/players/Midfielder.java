@@ -2,7 +2,7 @@ package sk.stuba.branny.futbal.players;
 
 import java.util.Random;
 
-public class Midfielder extends Player  {
+public class Midfielder extends Player implements Form {
 	
 	private double passing;
 	private double forma;
@@ -15,7 +15,8 @@ public class Midfielder extends Player  {
 		setForm();
 	}
 	
-	private void setForm(){
+	 @Override
+		public void setForm(){
 		
 		Random random = new Random();
 		forma = (random.nextInt(3)+9)/10.0;	

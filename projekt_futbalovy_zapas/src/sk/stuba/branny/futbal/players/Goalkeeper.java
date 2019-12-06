@@ -2,7 +2,7 @@ package sk.stuba.branny.futbal.players;
 
 import java.util.Random;
 
-public class Goalkeeper extends Player  { //dedenie
+public class Goalkeeper extends Player implements Form  { //dedenie
 	
 	private double goalkeeping;
 	private double passing;
@@ -20,8 +20,10 @@ public class Goalkeeper extends Player  { //dedenie
 		
 		setForm();	
 	}
-
-	private void setForm(){ //podobne ako tu tak aj v dalšich klasach aplikujem nahodnu formu od 0.9 po 1.1 na atributy hraèov podla typu 
+	
+		@Override
+		
+		public void setForm(){ //podobne ako tu tak aj v dalšich klasach aplikujem nahodnu formu od 0.9 po 1.1 na atributy hraèov podla typu 
 		
 		Random random = new Random();
 		forma = (random.nextInt(3)+9)/10.0;	

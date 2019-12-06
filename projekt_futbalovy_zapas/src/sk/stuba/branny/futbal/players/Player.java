@@ -1,6 +1,6 @@
 package sk.stuba.branny.futbal.players;
 
-public class Player {
+public abstract class Player {
 	//enkapsulaciu, vo všetkych triedach.
 	private String firstName;
 	private String secondName;
