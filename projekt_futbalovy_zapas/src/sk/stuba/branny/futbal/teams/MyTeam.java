@@ -115,7 +115,7 @@ public class MyTeam implements Teams {
 					Random rnd = new Random();
 					p = availableGoalkeepers.get(rnd.nextInt(availableGoalkeepers.size()));
 					startingElevenMyTeam.add(p);
-					
+					availableGoalkeepers.remove(p);
 					
 					System.out.println("There is no goalkeeper with this number, we chose "+p.getFirstName()+" "+p.getSecondName()+".");		
 				}		
@@ -123,6 +123,7 @@ public class MyTeam implements Teams {
 			else
 			{
 				startingElevenMyTeam.add(p);
+				availableGoalkeepers.remove(p);
 				System.out.println("Goalkeeper chosen\n");
 				break;
 			}

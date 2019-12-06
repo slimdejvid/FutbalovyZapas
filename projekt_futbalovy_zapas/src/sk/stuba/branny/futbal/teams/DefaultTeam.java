@@ -43,7 +43,7 @@ public class DefaultTeam implements Teams {
 
 		Player f1 = new Forward("Phillipe","Coutinho",6,78,92);
 		Player f2 = new Forward("Thomas","Müller",25,83,84);
-		Player f3 = new Forward("Robert","Lewandowski",9,93,85);
+		Player f3 = new Forward("Robert","Lewandowski",9,93,81);
 		startingElevenBayern.add(f1);
 		startingElevenBayern.add(f2);
 		startingElevenBayern.add(f3);

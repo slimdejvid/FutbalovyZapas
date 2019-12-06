@@ -78,11 +78,15 @@ public class Match {
 			p2=choosePlayerToSub(p1);
 			if(p2 == null)
 				continue;
+			else if(p1 instanceof Goalkeeper)
+			{
+				substitute((Goalkeeper) p1,(Goalkeeper) p2);
+			}
 			else if(p1 instanceof Defender) 
 				substitute((Defender) p1,(Defender) p2); //downcasting
 			else if(p1 instanceof Midfielder)
 				substitute((Midfielder) p1,(Midfielder) p2);
-			else if(p1 instanceof Midfielder)
+			else if(p1 instanceof Forward)
 				substitute((Forward) p1,(Forward) p2);
 			numberOfSubs--;			
 		}
@@ -127,7 +131,7 @@ public class Match {
 			players=homeTeam.getAvailableGoalkeepers();
 			for(Player p : players)
 			{
-				System.out.println("Kit number: "+p.getKitNumber()+" | "+p.getFirstName()+" "+p.getSecondName()+" | Defending: "+Math.round(((Defender)p).getDefending())+" | Passing: "+Math.round(((Defender)p).getPassing()));
+				System.out.println("Kit number: "+p.getKitNumber()+" | "+p.getFirstName()+" "+p.getSecondName()+" | Goalkeeping: "+Math.round(((Goalkeeper)p).getGoalkeeping())+" | Passing: "+Math.round(((Goalkeeper)p).getGoalkeeping()));
 			}
 			
 			int input = scan.nextInt();
@@ -208,9 +212,6 @@ public class Match {
 		}
 		
 		return null;
-		
-		
-	
 	}
 	
 	
@@ -222,7 +223,6 @@ public class Match {
 		{
 			if(p.getKitNumber()==startingElevenMyTeam.get(i).getKitNumber())
 			{
-				
 				return i;
 			}
 		}
@@ -231,7 +231,14 @@ public class Match {
 	
 	public void substitute(Goalkeeper g1,Goalkeeper g2)
 	{
-		Player goalie=(Player)g1; //upcasting
+		Player goalie=(Player)g1; 								//upcasting
+		List <Player> players=homeTeam.getAvailableGoalkeepers();
+		startingElevenMyTeam.remove(goalie);
+		startingElevenMyTeam.add(0, g2);
+		players.remove(g2);
+		players.add(goalie);
+		
+		System.out.println("SUBSTITUTION"+"\nON: "+g2.getFirstName()+" "+g2.getSecondName()+"\nOFF: "+goalie.getFirstName()+" "+goalie.getSecondName());
 		
 	}
 	
@@ -249,6 +256,7 @@ public class Match {
 		players.remove(d2);
 		players.add(d1);
 		
+		System.out.println("SUBSTITUTION"+"\nON: "+d2.getFirstName()+" "+d2.getSecondName()+"\nOFF: "+d1.getFirstName()+" "+d1.getSecondName());
 	}
 	//overloading
 	public void substitute(Midfielder m1,Midfielder m2) 
@@ -261,6 +269,8 @@ public class Match {
 		startingElevenMyTeam.add(pozicia, m2);
 		players.remove(m2);
 		players.add(m1);
+		
+		System.out.println("SUBSTITUTION"+"\nON: "+m2.getFirstName()+" "+m2.getSecondName()+"\nOFF: "+m1.getFirstName()+" "+m1.getSecondName());
 		
 	}
 	//overloading 
@@ -275,6 +285,8 @@ public class Match {
 		startingElevenMyTeam.add(pozicia, f2);
 		players.remove(f2);
 		players.add(f1);
+		
+		System.out.println("SUBSTITUTION"+"\nON: "+f2.getFirstName()+" "+f2.getSecondName()+"\nOFF: "+f1.getFirstName()+" "+f1.getSecondName());
 	}
 
 	
@@ -410,7 +422,7 @@ public class Match {
 	public void startTheMatch() //metoda ziskavajuca priebeh zapasu
 	{
 		int numberOfSubs;
-		int numberOfActions = 25; //poèet akcii zapasu
+		int numberOfActions = 20; //poèet akcii zapasu
 		Random rnd = new Random();
 		
 		int numberOfPlayers = startingElevenMyTeam.size();
@@ -423,7 +435,7 @@ public class Match {
 		
 		while(numberOfActions>0)
 		{
-			if(numberOfActions == 17)
+			if(numberOfActions == 15)
 			{
 				System.out.println("Choose how many substitutions you want to make");
 				
