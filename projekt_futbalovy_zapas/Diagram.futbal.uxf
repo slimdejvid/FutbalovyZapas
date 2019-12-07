@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>10</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
-      <y>590</y>
-      <w>230</w>
-      <h>210</h>
+      <x>322</x>
+      <y>574</y>
+      <w>161</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>Package::sk.branny.futbal.players
-&lt;&lt;Player&gt;&gt;
+/&lt;&lt;Player&gt;&gt;/
 --
 -firstName:String
 -secondName:String
@@ -28,54 +28,54 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>790</y>
-      <w>220</w>
-      <h>160</h>
+      <x>182</x>
+      <y>714</y>
+      <w>161</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>200.0;10.0;10.0;140.0</additional_attributes>
+    <additional_attributes>210.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>790</y>
-      <w>60</w>
-      <h>160</h>
+      <x>322</x>
+      <y>714</y>
+      <w>49</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>40.0;10.0;10.0;140.0</additional_attributes>
+    <additional_attributes>50.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>510</x>
-      <y>790</y>
-      <w>120</w>
-      <h>270</h>
+      <x>434</x>
+      <y>714</y>
+      <w>77</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;250.0</additional_attributes>
+    <additional_attributes>10.0;10.0;90.0;210.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>790</y>
-      <w>200</w>
-      <h>50</h>
+      <x>469</x>
+      <y>714</y>
+      <w>245</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;180.0;30.0</additional_attributes>
+    <additional_attributes>10.0;10.0;330.0;160.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>930</y>
-      <w>290</w>
-      <h>170</h>
+      <x>70</x>
+      <y>784</y>
+      <w>203</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>Package::sk.branny.futbal.players
 &lt;&lt;Goalkeeper&gt;&gt;
@@ -85,7 +85,7 @@
 -forma:double
 --
 +Goalkeeper(String,String,int,double,double)
--setForm():void
++setForm():void
 +getGoalkeeping():double
 +getPassing():dobule
 </panel_attributes>
@@ -94,10 +94,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>300</x>
-      <y>930</y>
-      <w>270</w>
-      <h>160</h>
+      <x>280</x>
+      <y>784</y>
+      <w>189</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Package::sk.branny.futbal.players
 &lt;&lt;Defender&gt;&gt;
@@ -107,7 +107,7 @@
 -forma:double
 --
 +Defender(String,String,int,double,double)
--setForm():void
++setForm():void
 +getDefending():double
 +getPassing():double</panel_attributes>
     <additional_attributes/>
@@ -115,10 +115,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>820</y>
-      <w>210</w>
-      <h>190</h>
+      <x>665</x>
+      <y>826</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Package::sk.branny.futbal.players
 &lt;&lt;Forward&gt;&gt;
@@ -128,7 +128,7 @@
 -forma:double
 --
 +Forward(String,String,int,double,double)
--setForm():void
++setForm():void
 +getShooting():double
 +getDribling():double</panel_attributes>
     <additional_attributes/>
@@ -136,10 +136,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>580</x>
-      <y>1040</y>
-      <w>230</w>
-      <h>140</h>
+      <x>476</x>
+      <y>861</y>
+      <w>161</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>Package::sk.branny.futbal.players
 &lt;&lt;Midfielder&gt;&gt;
@@ -148,17 +148,17 @@
 -forma:double
 --
 +Midfielder(String,String,int,double)
--setForm():void
++setForm():void
 +getPassing():double</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>780</x>
-      <y>250</y>
-      <w>270</w>
-      <h>250</h>
+      <x>693</x>
+      <y>301</y>
+      <w>189</w>
+      <h>217</h>
     </coordinates>
     <panel_attributes>Package::sk.stuba.branny.futbal.teams
 &lt;&lt;MyTeam&gt;&gt;
@@ -173,88 +173,93 @@ sc:Scanner
 -chooseMidfielders():void
 -chooseForwards():void
 -printPlayers(List&lt;Player&gt;,Class):void
--printStartingEleven():void
 +getStartingElevenMyTeam():List&lt;Player&gt;
-+getTeamName():String</panel_attributes>
++getTeamName():String
++getAvailableGoalkeepers():List&lt;Player&gt;
++getAvailableDefenders():List&lt;Player&gt;
++getAvailableMidfielders():List&lt;Player&gt;
++getAvailableForwards():List&lt;Player&gt;
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>400</y>
-      <w>230</w>
-      <h>220</h>
+      <x>476</x>
+      <y>406</y>
+      <w>231</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 bg=black
 m1=0..*
 -availableGoalkeepers</panel_attributes>
-    <additional_attributes>210.0;10.0;10.0;200.0</additional_attributes>
+    <additional_attributes>310.0;10.0;10.0;250.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>450</y>
-      <w>230</w>
-      <h>210</h>
+      <x>476</x>
+      <y>441</y>
+      <w>231</w>
+      <h>182</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 bg=black
 m1=0..*
 availableDefenders</panel_attributes>
-    <additional_attributes>210.0;10.0;10.0;190.0</additional_attributes>
+    <additional_attributes>310.0;10.0;10.0;240.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>490</y>
-      <w>250</w>
-      <h>240</h>
+      <x>476</x>
+      <y>511</y>
+      <w>245</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 bg=black
 m1=0..*
 -availableForwards</panel_attributes>
-    <additional_attributes>230.0;10.0;10.0;220.0</additional_attributes>
+    <additional_attributes>330.0;10.0;10.0;210.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>490</y>
-      <w>230</w>
-      <h>200</h>
+      <x>476</x>
+      <y>511</y>
+      <w>231</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 bg=black
 m1=0..*
 -availableMidfielders</panel_attributes>
-    <additional_attributes>210.0;10.0;10.0;180.0</additional_attributes>
+    <additional_attributes>310.0;10.0;10.0;170.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>360</y>
-      <w>240</w>
-      <h>250</h>
+      <x>469</x>
+      <y>378</y>
+      <w>238</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 bg=black
+m1=0..*
 -startingElevenMyTeam
 </panel_attributes>
-    <additional_attributes>220.0;10.0;30.0;100.0;10.0;230.0</additional_attributes>
+    <additional_attributes>320.0;10.0;70.0;190.0;10.0;280.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>30</x>
-      <y>380</y>
-      <w>290</w>
-      <h>190</h>
+      <x>91</x>
+      <y>399</y>
+      <w>203</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Package::sk.stuba.branny.futbal.teams
 &lt;&lt;DefaultTeam&gt;&gt;
@@ -262,8 +267,8 @@ bg=black
 -teamName:String
 --
 +DefaultTeam()
--initPlayers():void
--printPlayers():void
++initPlayers():void
++printPlayers():void
 +getStartingElevenAwayTeam():List&lt;Player&gt;
 +getTeamName():String
 +toString():String
@@ -273,30 +278,32 @@ bg=black
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>560</y>
-      <w>210</w>
-      <h>170</h>
+      <x>182</x>
+      <y>525</y>
+      <w>154</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 bg=black
 m1=0..*
 -startingElevenBayern
 </panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;150.0;190.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;70.0;150.0;200.0;150.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
+      <x>315</x>
       <y>0</y>
-      <w>250</w>
-      <h>260</h>
+      <w>224</w>
+      <h>294</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Stereotype&gt;&gt;
 Package::sk.stuba.branny.futbal.match
 &lt;&lt;Match&gt;&gt;
 --
+_-maxNumberOfSubs:int_
+scan:Scanner
 -homeName:String
 -awayName:String
 -skoreHome:int
@@ -306,6 +313,14 @@ Package::sk.stuba.branny.futbal.match
 +getInstance():Match 
 +setHomeTeam(MyTeam):void
 +setAwayTeam(DefaultTeam):void
++substitution(int):void
++choosePlayerToBeSub():Player
++choosePlayerSub(Player):Player
++returnPosition(Player):int
++substitute(Goalkeeper,Goalkeeper):void
++substitute(Defender,Defender):void
++substitute(Midfielder,Midfielder):void
++substitute(Forward,Forward):void
 +pass(Player,Player,Player,Class):void
 +forwardVsDefender(Player,Player):int
 +shot(Player,Player):void
@@ -315,44 +330,176 @@ Package::sk.stuba.branny.futbal.match
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>590</x>
-      <y>180</y>
-      <w>210</w>
-      <h>100</h>
+      <x>532</x>
+      <y>126</y>
+      <w>175</w>
+      <h>196</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 
 m1=0..1
 -homeTeam</panel_attributes>
-    <additional_attributes>10.0;10.0;190.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;230.0;260.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>250</y>
-      <w>120</w>
-      <h>150</h>
+      <x>287</x>
+      <y>287</y>
+      <w>84</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 
 m1=0..1
 -awayTeam</panel_attributes>
-    <additional_attributes>40.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>40.0;10.0;10.0;160.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>220</y>
-      <w>150</w>
-      <h>110</h>
+      <x>497</x>
+      <y>259</y>
+      <w>77</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
--instance
+_-instance_
 
 </panel_attributes>
-    <additional_attributes>40.0;10.0;90.0;40.0;60.0;90.0;20.0;80.0;10.0;40.0</additional_attributes>
+    <additional_attributes>60.0;10.0;90.0;70.0;50.0;100.0;10.0;80.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>994</y>
+      <w>147</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+Package::sk.branny.futbal.players
+Form
+--
++setForm():void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>385</x>
+      <y>889</y>
+      <w>21</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>896</y>
+      <w>84</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>100.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>952</y>
+      <w>98</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>952</y>
+      <w>294</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;100.0;400.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>364</x>
+      <y>357</y>
+      <w>147</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+Package::sk.branny.futbal.teams
+Teams
+--
++initPlayers():void
++printTeam():void
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>287</x>
+      <y>385</y>
+      <w>91</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>504</x>
+      <y>329</y>
+      <w>203</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;50.0;270.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>14</x>
+      <y>210</y>
+      <w>322</w>
+      <h>469</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black
+m1=0..*
+-startingElevenMyTeam
+</panel_attributes>
+    <additional_attributes>430.0;10.0;180.0;40.0;40.0;90.0;20.0;140.0;10.0;350.0;10.0;590.0;120.0;620.0;440.0;650.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>49</x>
+      <y>245</y>
+      <w>287</w>
+      <h>413</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black
+m1=0..*
+-startingElevenAwayTeam
+</panel_attributes>
+    <additional_attributes>380.0;10.0;200.0;40.0;30.0;210.0;10.0;450.0;100.0;540.0;390.0;570.0</additional_attributes>
   </element>
 </diagram>

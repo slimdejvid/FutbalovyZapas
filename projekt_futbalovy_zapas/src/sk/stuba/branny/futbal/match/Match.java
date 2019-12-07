@@ -15,7 +15,7 @@ import sk.stuba.branny.futbal.teams.MyTeam;
 
 public class Match {
 	private static Match instance;
-	private final int maxNumberOfSubs = 3; 
+	private static final int maxNumberOfSubs = 3; 
 	
 	private MyTeam homeTeam;//agregacia
 	private DefaultTeam awayTeam;//agregacia
