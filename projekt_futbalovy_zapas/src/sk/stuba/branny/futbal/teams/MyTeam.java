@@ -71,7 +71,7 @@ public class MyTeam implements Teams {
 		availableGoalkeepers.add(g1);
 		availableGoalkeepers.add(g2);
 		
-		availableDefenders.add(d1);
+		availableDefenders.add(d1); //pridavam do arraylistu Player Defendera Upcasting
 		availableDefenders.add(d2);
 		availableDefenders.add(d3);
 		availableDefenders.add(d4);
