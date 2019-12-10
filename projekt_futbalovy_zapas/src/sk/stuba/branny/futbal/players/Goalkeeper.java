@@ -45,7 +45,8 @@ public class Goalkeeper extends Player implements PlayerFunctions {
 	public double getGoalkeeping() {
 		return goalkeeping;
 	}
-
+	
+	
 	public double getPassing() {
 		return passing;
 	}

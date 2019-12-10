@@ -33,7 +33,10 @@ public class Player implements PlayerFunctions {
 		return this.hasBall;
 	}
 	
-	@Override
+	public double getPassing() {
+		return 0.0;
+	}
+	
 	public void printAttributes() {
 		
 	}

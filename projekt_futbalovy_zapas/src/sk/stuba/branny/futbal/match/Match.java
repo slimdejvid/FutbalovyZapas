@@ -184,6 +184,15 @@ public class Match {
 		return 0;
 	}
 
+	public void exchangePlayers(List<Player> players, Player player1, Player player2) {
+		int pozicia =returnPosition(player1);
+		startingElevenMyTeam.remove(pozicia);
+		startingElevenMyTeam.add(pozicia, player2);
+		players.remove(player2);
+		players.add(player1);
+		
+	}
+	
 	public void substitute(Goalkeeper g1, Goalkeeper g2) {
 		Player goalie = (Player) g1;
 		List<Player> players = homeTeam.getAvailableGoalkeepers();
@@ -211,50 +220,38 @@ public class Match {
 				+ d1.getFirstName() + " " + d1.getSecondName());
 	}
 
-	public void substitute(Midfielder m1, Midfielder m2) {
-		int pozicia = returnPosition(m1);
-
+	public void substitute(Midfielder midfielder1, Midfielder midfielder2) {
+		
 		List<Player> players = homeTeam.getAvailableMidfielders();
+		
+		exchangePlayers(players, midfielder1, midfielder2);
 
-		startingElevenMyTeam.remove(pozicia);
-		startingElevenMyTeam.add(pozicia, m2);
-		players.remove(m2);
-		players.add(m1);
-
-		System.out.println("SUBSTITUTION" + "\nON: " + m2.getFirstName() + " " + m2.getSecondName() + "\nOFF: "
-				+ m1.getFirstName() + " " + m1.getSecondName());
+		System.out.println("SUBSTITUTION" + "\nON: " + midfielder2.getFirstName() + " " + midfielder2.getSecondName() + "\nOFF: "
+				+ midfielder1.getFirstName() + " " + midfielder1.getSecondName());
 
 	}
 
-	public void substitute(Forward f1, Forward f2) {
+	public void substitute(Forward forward1, Forward forward2) {
 
-		int pozicia = returnPosition(f1);
+		
 
 		List<Player> players = homeTeam.getAvailableForwards();
 
-		startingElevenMyTeam.remove(pozicia);
-		startingElevenMyTeam.add(pozicia, f2);
-		players.remove(f2);
-		players.add(f1);
+		exchangePlayers(players, forward1, forward2);
 
-		System.out.println("SUBSTITUTION" + "\nON: " + f2.getFirstName() + " " + f2.getSecondName() + "\nOFF: "
-				+ f1.getFirstName() + " " + f1.getSecondName());
+		System.out.println("SUBSTITUTION" + "\nON: " + forward2.getFirstName() + " " + forward2.getSecondName() + "\nOFF: "
+				+ forward1.getFirstName() + " " + forward1.getSecondName());
 	}
 
-	public void pass(Player passing, Player recieving, Player defending, Class c) {
+	public void pass(Player passing, Player recieving, Player defending) {
 		int passValue;
 		Random rnd = new Random();
 		int random = (rnd.nextInt(60) + 40);
+		
 		passing.setHasBall(false);
 
-		if (c == Goalkeeper.class) {
-			passValue = (int) ((Goalkeeper) passing).getPassing();
-		} else if (c == Defender.class) {
-			passValue = (int) ((Defender) passing).getPassing();
-		} else {
-			passValue = (int) ((Midfielder) passing).getPassing();
-		}
-
+		passValue=(int)passing.getPassing();
+		
 		if (random > passValue) {
 
 			defending.setHasBall(true);
@@ -394,7 +391,7 @@ public class Match {
 					int random = (rnd.nextInt(numberOfPlayers - 1 - i) + (i + 1));
 
 					pass(startingElevenMyTeam.get(i), startingElevenMyTeam.get(random),
-							startingElevenAwayTeam.get(numberOfPlayers - i - 1), Goalkeeper.class); // tak prihráva
+							startingElevenAwayTeam.get(numberOfPlayers - i - 1)); // tak prihráva
 																									// náhodnému hráèovi
 																									// pred ním
 
@@ -408,7 +405,7 @@ public class Match {
 					int random = (rnd.nextInt(numberOfPlayers - 1 - i) + (i + 1));
 
 					pass(startingElevenMyTeam.get(i), startingElevenMyTeam.get(random),
-							startingElevenAwayTeam.get(numberOfPlayers - i - 1), Defender.class); // prihráva náhodnému
+							startingElevenAwayTeam.get(numberOfPlayers - i - 1)); // prihráva náhodnému
 																									// hráèovi pred ním
 
 				} else if (startingElevenMyTeam.get(i).getHasBall() == true
@@ -421,7 +418,7 @@ public class Match {
 					int random = (rnd.nextInt(numberOfPlayers - 1 - i) + (i + 1));
 
 					pass(startingElevenMyTeam.get(i), startingElevenMyTeam.get(random),
-							startingElevenAwayTeam.get(numberOfPlayers - i - 1), Midfielder.class);
+							startingElevenAwayTeam.get(numberOfPlayers - i - 1));
 
 				} else if (startingElevenMyTeam.get(i).getHasBall() == true
 						&& startingElevenMyTeam.get(i) instanceof Forward) {
@@ -448,7 +445,7 @@ public class Match {
 					int random = (rnd.nextInt(numberOfPlayers - 1 - i) + (i + 1));
 
 					pass(startingElevenAwayTeam.get(i), startingElevenAwayTeam.get(random),
-							startingElevenMyTeam.get(numberOfPlayers - i - 1), Goalkeeper.class);
+							startingElevenMyTeam.get(numberOfPlayers - i - 1));
 
 				} else if (startingElevenAwayTeam.get(i).getHasBall() == true
 						&& startingElevenAwayTeam.get(i) instanceof Defender) {
@@ -459,7 +456,7 @@ public class Match {
 					int random = (rnd.nextInt(numberOfPlayers - 1 - i) + (i + 1));
 
 					pass(startingElevenAwayTeam.get(i), startingElevenAwayTeam.get(random),
-							startingElevenMyTeam.get(numberOfPlayers - i - 1), Defender.class);
+							startingElevenMyTeam.get(numberOfPlayers - i - 1));
 
 				} else if (startingElevenAwayTeam.get(i).getHasBall() == true
 						&& startingElevenAwayTeam.get(i) instanceof Midfielder) {
@@ -469,7 +466,7 @@ public class Match {
 					int random = (rnd.nextInt(numberOfPlayers - 1 - i) + (i + 1));
 
 					pass(startingElevenAwayTeam.get(i), startingElevenAwayTeam.get(random),
-							startingElevenMyTeam.get(numberOfPlayers - i - 1), Midfielder.class);
+							startingElevenMyTeam.get(numberOfPlayers - i - 1));
 
 				} else if (startingElevenAwayTeam.get(i).getHasBall() == true
 						&& startingElevenAwayTeam.get(i) instanceof Forward) {
