@@ -2,7 +2,7 @@ package sk.stuba.branny.futbal.players;
 
 import java.util.Random;
 
-public class Goalkeeper extends Player implements Form {
+public class Goalkeeper extends Player implements PlayerFunctions {
 
 	private double goalkeeping;
 	private double passing;
@@ -48,6 +48,14 @@ public class Goalkeeper extends Player implements Form {
 
 	public double getPassing() {
 		return passing;
+	}
+
+	@Override
+	public void printAttributes() {
+		
+		System.out.println(this.getKitNumber() + " " + this.getFirstName() + " "
+				+ this.getSecondName() + " | Goalkeeping: " + Math.round(this.getGoalkeeping())
+				+ " | Passing: " + Math.round(this.getPassing()));
 	}
 
 }

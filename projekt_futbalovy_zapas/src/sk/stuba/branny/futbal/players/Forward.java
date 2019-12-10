@@ -2,7 +2,7 @@ package sk.stuba.branny.futbal.players;
 
 import java.util.Random;
 
-public class Forward extends Player implements Form {
+public class Forward extends Player implements PlayerFunctions {
 
 	private double shooting;
 	private double dribling;
@@ -46,5 +46,12 @@ public class Forward extends Player implements Form {
 
 	public double getDribling() {
 		return dribling;
+	}
+	
+	@Override
+	public void printAttributes() {
+		System.out.println(this.getKitNumber() + " " + this.getFirstName() + " "
+				+ this.getSecondName() + " | Shooting: " + Math.round(this.getShooting())
+				+ " | Dribling: " + Math.round(this.getDribling()));
 	}
 }

@@ -1,6 +1,6 @@
 package sk.stuba.branny.futbal.players;
 
-public abstract class Player {
+public class Player implements PlayerFunctions {
 
 	private String firstName;
 	private String secondName;
@@ -31,6 +31,15 @@ public abstract class Player {
 
 	public boolean getHasBall() {
 		return this.hasBall;
+	}
+	
+	@Override
+	public void printAttributes() {
+		
+	}
+	
+	public void setForm() {
+		
 	}
 
 }

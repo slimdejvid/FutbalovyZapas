@@ -89,7 +89,7 @@ public class MyTeam implements Teams {
 
 		System.out.println("List of goalkeepers: ");
 
-		printPlayers(availableGoalkeepers, Goalkeeper.class);
+		printPlayers(availableGoalkeepers);
 
 		int count = 0;
 
@@ -100,8 +100,7 @@ public class MyTeam implements Teams {
 
 			if (input != p.getKitNumber()) {
 				count++;
-				if (count == availableGoalkeepers.size())
-				{
+				if (count == availableGoalkeepers.size()) {
 					Random rnd = new Random();
 					p = availableGoalkeepers.get(rnd.nextInt(availableGoalkeepers.size()));
 					startingElevenMyTeam.add(p);
@@ -110,8 +109,7 @@ public class MyTeam implements Teams {
 					System.out.println("There is no goalkeeper with this number, we chose " + p.getFirstName() + " "
 							+ p.getSecondName() + ".");
 				}
-			} 
-			else {
+			} else {
 				startingElevenMyTeam.add(p);
 				availableGoalkeepers.remove(p);
 				System.out.println("Goalkeeper chosen\n");
@@ -130,7 +128,7 @@ public class MyTeam implements Teams {
 
 		System.out.println("List of defenders: ");
 
-		printPlayers(availableDefenders, Defender.class);
+		printPlayers(availableDefenders);
 
 		System.out.println("Choose your defenders\n");
 
@@ -145,7 +143,7 @@ public class MyTeam implements Teams {
 					System.out.println("Defender number " + defender.getKitNumber() + " chosen\n");
 					availableDefenders.remove(defender);
 					if (numberOfValidInputs != 0)
-						printPlayers(availableDefenders, Defender.class);
+						printPlayers(availableDefenders);
 					break;
 				}
 
@@ -163,7 +161,7 @@ public class MyTeam implements Teams {
 
 		System.out.println("List of midfielders: ");
 
-		printPlayers(availableMidfielders, Midfielder.class);
+		printPlayers(availableMidfielders);
 
 		System.out.println("Choose your midfielders\n");
 
@@ -178,7 +176,7 @@ public class MyTeam implements Teams {
 					System.out.println("Midfielder number " + p.getKitNumber() + " chosen\n");
 					availableMidfielders.remove(p);
 					if (numberOfValidInputs != 0)
-						printPlayers(availableMidfielders, Midfielder.class);
+						printPlayers(availableMidfielders);
 					break;
 				}
 
@@ -196,7 +194,7 @@ public class MyTeam implements Teams {
 
 		System.out.println("List of forwards: ");
 
-		printPlayers(availableForwards, Forward.class);
+		printPlayers(availableForwards);
 
 		System.out.println("Choose your forwards\n");
 
@@ -211,7 +209,7 @@ public class MyTeam implements Teams {
 					System.out.println("Forward number " + p.getKitNumber() + " chosen\n");
 					availableForwards.remove(p);
 					if (numberOfValidInputs != 0)
-						printPlayers(availableForwards, Forward.class);
+						printPlayers(availableForwards);
 					break;
 				}
 
@@ -219,42 +217,19 @@ public class MyTeam implements Teams {
 			if (find == false)
 				System.out.println("Invalid kit number, try again");
 		}
-	
+
 	}
 
-	private void printPlayers(List<Player> pole, Class c) 
-	{
-		if (c == Goalkeeper.class) {
-			for (Player p : pole)
-				System.out.println("Kit number: " + p.getKitNumber() + " | " + p.getFirstName() + " "
-						+ p.getSecondName() + " | Goalkeeping: " + Math.round(((Goalkeeper) p).getGoalkeeping())
-						+ " | Passing: " + Math.round(((Goalkeeper) p).getPassing()));
-		} 
-		else if (c == Defender.class) {
-			for (Player p : pole)
-				System.out.println("Kit number: " + p.getKitNumber() + " | " + p.getFirstName() + " "
-						+ p.getSecondName() + " | Defending: " + Math.round(((Defender) p).getDefending())
-						+ " | Passing: " + Math.round(((Defender) p).getPassing()));
-		} 
-		else if (c == Midfielder.class) {
-			for (Player p : pole)
-				System.out.println("Kit number: " + p.getKitNumber() + " | " + p.getFirstName() + " "
-						+ p.getSecondName() + " | Passing: " + Math.round(((Midfielder) p).getPassing()));
-		} 
-		else {
-			for (Player p : pole)
-				System.out.println("Kit number: " + p.getKitNumber() + " | " + p.getFirstName() + " "
-						+ p.getSecondName() + " | Shooting: " + Math.round(((Forward) p).getShooting())
-						+ " | Dribling: " + Math.round(((Forward) p).getDribling()));
-		}
+	private void printPlayers(List<Player> pole) {
+		for (Player p : pole)
+			p.printAttributes();
 	}
 
 	@Override
-	public void printTeam() 
-	{
+	public void printTeam() {
 		System.out.println("\n" + teamName + "\n");
 		for (Player p : startingElevenMyTeam) {
-			System.out.println(p.getKitNumber() + ". " + p.getFirstName() + " " + p.getSecondName());
+			p.printAttributes();
 		}
 		System.out.println("\n");
 	}
@@ -274,7 +249,7 @@ public class MyTeam implements Teams {
 	public List<Player> getAvailableDefenders() {
 		return this.availableDefenders;
 	}
-	
+
 	public List<Player> getAvailableMidfielders() {
 		return this.availableMidfielders;
 	}
