@@ -15,7 +15,8 @@ import sk.stuba.branny.futbal.teams.MyTeam;
 public class Match {
 	private static Match instance;
 	private static final int maxNumberOfSubs = 3;
-
+	private static final int goalkeeperIndex = 0;
+	private static final int midPlayerIndex = 5;
 	private MyTeam homeTeam;
 	private DefaultTeam awayTeam;
 
@@ -177,9 +178,9 @@ public class Match {
 	public int returnPosition(Player p) {
 		int numberOfPlayers = startingElevenMyTeam.size();
 
-		for (int i = 0; i < numberOfPlayers; i++) {
-			if (p.getKitNumber() == startingElevenMyTeam.get(i).getKitNumber()) {
-				return i;
+		for (int position = 0; position < numberOfPlayers; position++) {
+			if (p.getKitNumber() == startingElevenMyTeam.get(position).getKitNumber()) {
+				return position;
 			}
 		}
 		return 0;
@@ -287,7 +288,7 @@ public class Match {
 				if (random2 > goalkeepingValue) {
 					skoreHome++;
 
-					startingElevenAwayTeam.get(5).setHasBall(true);
+					startingElevenAwayTeam.get(midPlayerIndex).setHasBall(true);
 					System.out.println(
 							"- " + shooter.getFirstName() + " " + shooter.getSecondName() + " shoots and SCORES!!!!");
 					System.out.println("- Score is " + skoreHome + " : " + skoreAway);
@@ -304,13 +305,13 @@ public class Match {
 						"- " + shooter.getFirstName() + " " + shooter.getSecondName() + " shoots but misses the goal");
 			}
 		} 
-		else if (!homePlayer) {
-			if (random <= shootingValue){		// If enemy forward hits the post
+		else if (!homePlayer) {				// If enemy forward hits the post
+			if (random <= shootingValue){		
 			
 				if (random2 > goalkeepingValue) {
 					skoreAway++;
 
-					startingElevenMyTeam.get(5).setHasBall(true);
+					startingElevenMyTeam.get(midPlayerIndex).setHasBall(true);
 					System.out.println(
 							"- " + shooter.getFirstName() + " " + shooter.getSecondName() + " shoots and SCORES!!!!");
 					System.out.println("- Score is " + skoreHome + " : " + skoreAway);
@@ -370,7 +371,7 @@ public class Match {
 		int numberOfPlayers = startingElevenMyTeam.size();
 		boolean dribbled;
 
-		startingElevenMyTeam.get(5).setHasBall(true);
+		startingElevenMyTeam.get(midPlayerIndex).setHasBall(true);
 
 		System.out.println("The match has started");
 
@@ -396,7 +397,7 @@ public class Match {
 								startingElevenAwayTeam.get(numberOfPlayers - position));
 
 						if (dribbled) {
-							shot(startingElevenMyTeam.get(position), startingElevenAwayTeam.get(0));
+							shot(startingElevenMyTeam.get(position), startingElevenAwayTeam.get(goalkeeperIndex));
 						}
 
 					}
@@ -417,7 +418,7 @@ public class Match {
 								startingElevenMyTeam.get(numberOfPlayers - position));
 
 						if (dribbled) {
-							shot(startingElevenAwayTeam.get(position), startingElevenMyTeam.get(0));
+							shot(startingElevenAwayTeam.get(position), startingElevenMyTeam.get(goalkeeperIndex));
 						}
 
 					}
