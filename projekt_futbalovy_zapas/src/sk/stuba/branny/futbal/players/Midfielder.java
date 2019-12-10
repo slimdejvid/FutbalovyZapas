@@ -16,7 +16,7 @@ public class Midfielder extends Player implements Form {
 	}
 	
 	 @Override
-		public void setForm(){
+	public void setForm(){
 		
 		Random random = new Random();
 		forma = (random.nextInt(3)+9)/10.0;	

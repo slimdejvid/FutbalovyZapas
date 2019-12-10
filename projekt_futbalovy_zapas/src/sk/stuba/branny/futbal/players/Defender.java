@@ -2,18 +2,19 @@ package sk.stuba.branny.futbal.players;
 
 import java.util.Random;
 
-public class Defender extends Player implements Form {
+public class Defender extends Player implements Form 
+{
 	
 	private double defending;
 	private double passing;
-	private double forma;
+	private double form;
 	
-	public Defender(String firstName,String secondName, int kitNumber,double defending,double passing)
+	public Defender(String firstName, String secondName, int kitNumber, double defending, double passing)
 	{
-		super(firstName,secondName,kitNumber);
+		super(firstName, secondName, kitNumber);
 		
-		this.passing=passing;
-		this.defending=defending;
+		this.passing = passing;
+		this.defending = defending;
 		
 		setForm();
 		
@@ -22,9 +23,9 @@ public class Defender extends Player implements Form {
 		public void setForm(){
 		
 			Random random = new Random();
-			forma = (random.nextInt(4)+8)/10.0;	
-			this.defending = defending*forma;
-			this.passing = passing*forma;
+			form = (random.nextInt(4)+8)/10.0;	
+			this.defending = defending*form;
+			this.passing = passing*form;
 			if(this.passing>100)
 			{
 				this.passing = 100;

@@ -1,7 +1,7 @@
 package sk.stuba.branny.futbal.players;
 
 public abstract class Player {
-	//enkapsulaciu, vo všetkych triedach.
+	
 	private String firstName;
 	private String secondName;
 	private int kitNumber;
@@ -29,12 +29,12 @@ public abstract class Player {
 		return this.kitNumber;
 	}
 	
-	public void setHasBall(boolean newValue) //ak hrac ziska loptu alebo strati, zmenim hodnotu
+	public void setHasBall(boolean newValue) 
 	{
 		this.hasBall = newValue;
 	}
 	
-	public boolean getHasBall() // stav hraca si ma loptu, volane prevazne v match classe
+	public boolean getHasBall() 
 	{
 		return this.hasBall;
 	}

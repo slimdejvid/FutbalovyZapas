@@ -8,26 +8,27 @@ import sk.stuba.branny.futbal.teams.MyTeam;
 
 
 
-public class Main {
-	public static void main(String[] args) {
+public class Main 
+{
+	public static void main(String[] args) 
+	{
 		
-		System.out.println("If u want to choose your starting team and play, click the \"C\" key");
-		Scanner sc = new Scanner(System.in);
-		char ipt=sc.next().charAt(0);
-		while(ipt != 'c')
+		System.out.println("If you want to choose your starting team and play, click the \"C\" key");
+		Scanner scan = new Scanner(System.in);
+		char charInput=scan.next().charAt(0);
+		while(charInput != 'c')
 		{
-			ipt=sc.next().charAt(0);
-		}
-		
-		
-			MyTeam t1 = new MyTeam();
-			DefaultTeam t2 = new DefaultTeam();
-			Match match = Match.getInstance(); //vytvorenie inštancie matchu cez singleton
-			match.setHomeTeam(t1);
-			match.setAwayTeam(t2);
+			charInput=scan.next().charAt(0);
+		}		
+			MyTeam team1 = new MyTeam();
+			DefaultTeam team2 = new DefaultTeam();
+			
+			Match match = Match.getInstance();
+			match.setHomeTeam(team1);
+			match.setAwayTeam(team2);
 			match.startTheMatch();
-			sc.close();
-		
+			
+			scan.close();
 	}
 
 }
