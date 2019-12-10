@@ -1,44 +1,36 @@
 package sk.stuba.branny.futbal.players;
 
 public abstract class Player {
-	
+
 	private String firstName;
 	private String secondName;
 	private int kitNumber;
 	private boolean hasBall = false;
-	
-	public Player(String firstName,String secondName, int kitNumber)
-	{
-		this.kitNumber=kitNumber;
-		this.firstName=firstName;
-		this.secondName=secondName;
+
+	public Player(String firstName, String secondName, int kitNumber) {
+		this.kitNumber = kitNumber;
+		this.firstName = firstName;
+		this.secondName = secondName;
 	}
-	
-	public String getFirstName() 
-	{
+
+	public String getFirstName() {
 		return this.firstName;
 	}
-	
-	public String getSecondName() 
-	{
+
+	public String getSecondName() {
 		return this.secondName;
 	}
-	
-	public int getKitNumber() 
-	{
+
+	public int getKitNumber() {
 		return this.kitNumber;
 	}
-	
-	public void setHasBall(boolean newValue) 
-	{
+
+	public void setHasBall(boolean newValue) {
 		this.hasBall = newValue;
 	}
-	
-	public boolean getHasBall() 
-	{
+
+	public boolean getHasBall() {
 		return this.hasBall;
 	}
-	
-	
-	
+
 }

@@ -1,6 +1,6 @@
 package sk.stuba.branny.futbal.teams;
 
-public interface Teams { //interface
+public interface Teams { 
 	
 	void initPlayers();
 	void printTeam();
