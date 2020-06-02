@@ -1,5 +1,6 @@
-Kód je projekt na ZOOP , ide o simuláciu futbalového zápasu s monostami ako:
-vyberanie zostavy s vypísaného vıberu
-striedanie hráèov zo zvolenej zostavy
+KÃ³d je projekt na ZOOP , ide o simulÃ¡ciu futbalovÃ©ho zÃ¡pasu s moÅ¾nostami ako:
+vyberanie zostavy s vypÃ­sanÃ©ho vÃ½beru
+striedanie hrÃ¡Äov zo zvolenej zostavy
 
-Techniky refaktoringu
+
+
